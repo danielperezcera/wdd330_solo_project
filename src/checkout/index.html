@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sleep Outside | Checkout</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/checkout.js" type="module"></script>
+  </head>
+
+  <body>
+    <header class="divider" id="main-header"></header>
+
+    <main class="divider">
+      <section class="products">
+        <h2>Review & Place your Order</h2>
+
+        <form action="" name="checkout">
+          <fieldset>
+            <legend>Shipping</legend>
+            <label
+              >First Name <input type="text" name="fname" id="fname" required
+            /></label>
+            <label
+              >Last Name <input type="text" name="lname" id="lname" required
+            /></label>
+            <label
+              >Street <input type="text" name="street" id="street" required
+            /></label>
+            <label
+              >City <input type="text" name="city" id="city" required
+            /></label>
+            <label
+              >State <input type="text" name="state" id="state" required
+            /></label>
+            <label
+              >Zip <input type="text" name="zip" id="zip" required
+            /></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Payment</legend>
+            <label
+              >Card Number
+              <input type="text" name="cardNumber" id="cardNumber" required
+            /></label>
+            <label
+              >Expiration
+              <input type="text" name="expiration" id="expiration" required
+            /></label>
+            <label
+              >Security Code <input type="text" name="code" id="code" required
+            /></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Order Summary</legend>
+            <p>
+              Item Subtotal(<span id="quantity"></span>)
+              <span class="span-totals" id="subtotal"></span>
+            </p>
+            <p>
+              Shipping Estimate <span class="span-totals" id="shipping"></span>
+            </p>
+            <p>Tax <span class="span-totals" id="tax"></span></p>
+            <p>
+              <strong>Order Total </strong
+              ><span class="span-totals" id="ordertotal"></span>
+            </p>
+          </fieldset>
+
+          <button id="checkoutSubmit" type="submit">Checkout</button>
+        </form>
+      </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+  </body>
+</html>
