@@ -7,6 +7,7 @@ loadHeaderFooter();
 
 const element = document.querySelector("#new");
 
+
 // const funcion = () => {
 //   window.location = "product-listing/index.html";
 // };
