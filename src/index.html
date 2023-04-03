@@ -29,17 +29,37 @@
       </div>
     </a>
 
-    <a href="ticket-listing/index.html?status=complete">
-      <div class="typeCard" id="complete">
+    <a href="ticket-listing/index.html?status=completed">
+      <div class="typeCard" id="completed">
         <h2>COMPLETE</h2>
       </div>
     </a>
   </main>
-  <a href="forms/index.html">
-    <button>New Ticket</button>
-  </a>
+
+  <button id="openModal">New Ticket</button>
+
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <h1>Add New Ticket</h1>
+      <form action="submit">
+        <fieldset>
+          <legend>Basic Information</legend>
+          <label>Area: <input type="text" required name="area"></label>
+          <br>
+          <label>Description: <input type="text" required name="description"></label>
+          <br>
+          <label>Contact: <input type="text" required name="contact"></label>
+          <br>
+          <button class="formButton" id="submit" type="submit">Submit</button>
+          <button class="formButton" type="button" id="cancel">Cancel</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
   <footer id="main-footer"></footer>
   <script type="module" src="./js/main.js"></script>
+  <script type="module" src="../js/form.js"></script>
 </body>
 
 </html>

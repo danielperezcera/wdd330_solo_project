@@ -29,7 +29,39 @@ document.querySelector("#submit").addEventListener("click", (e) => {
 
   const form = document.querySelector("form");
 
+  const ticket = {
+    area: form.area.value,
+    description: form.description.value,
+    contact: form.contact.value,
+    status: "New",
+  };
+
   // handleTicket(e.target.area.value, e.target.description.value, e.target.contact.value);
 
-  console.log(form.area.value);
+  console.log(ticket);
+
+  let ticketList = getLocalStorage("ticket-list");
+
+  if (!ticketList) {
+    ticketList = [];
+    ticketList.push(ticket);
+    setLocalStorage("ticket-list", ticketList);
+  } else if (ticketList) {
+    ticketList.push(ticket);
+    setLocalStorage("ticket-list", ticketList);
+  }
+
+  //resetting form
+  form.area.value = "";
+  form.description.value = "";
+  form.contact.value = "";
+
+  //closing the modal function declaration
+  const close = () => {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+  };
+
+  //executing the function
+  close();
 });
