@@ -40,10 +40,10 @@ function TicketTemplate(ticket, index) {
   <li class="ticket-card">
     <h3>Ticket No.${index}</h3>
       <div>
-        <p>Area:${ticket.area}</p>
-        <p>Description:${ticket.description}</p>
-        <p>Contact:${ticket.contact}</p>
-        <p>Current Status:${ticket.status}</p>
+        <p><b>Area:</b>  ${ticket.area}</p>
+        <p><b>Description:</b>  ${ticket.description}</p>
+        <p><b>Contact:</b>  ${ticket.contact}</p>
+        <p><b>Current Status:</b>  ${ticket.status}</p>
         <select id="s${index}" >
 
           <option value="${ticket.status}" selected>${ticket.status}</option>

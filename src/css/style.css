@@ -378,3 +378,39 @@ fieldset input {
 #footerUl li a:hover {
   background-color: #111111;
 }
+
+.ticketListArea {
+  display: flex;
+  flex-direction: column;
+}
+.ticketListArea h1 {
+  text-transform: capitalize;
+  margin: 20px auto 20px;
+}
+
+.ticketListContainer ul {
+  list-style-type: none;
+}
+
+.ticket-card {
+  position: relative;
+  background-color: #b0daeb;
+  padding: 25px;
+  margin: 10px 35px 10px 0px;
+  border-radius: 10px;
+}
+
+.ticket-card p {
+  margin: 0px;
+}
+.ticket-card select {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 16px;
+  background-color: #f0a868;
+}
+
+.ticket-card h3 {
+  margin: 0px 0px 5px 0px;
+}
