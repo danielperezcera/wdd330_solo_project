@@ -1,11 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
-// const ticketList = new TicketList;
-
-// const handleTicket = ()=>{
-//   const ticket = new Ticket();
-
-// }
 class Ticket {
   constructor(area, description, contact) {
     this.area = area;
@@ -35,8 +29,6 @@ document.querySelector("#submit").addEventListener("click", (e) => {
     contact: form.contact.value,
     status: "New",
   };
-
-  // handleTicket(e.target.area.value, e.target.description.value, e.target.contact.value);
 
   console.log(ticket);
 

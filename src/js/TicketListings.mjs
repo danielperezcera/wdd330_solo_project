@@ -1,40 +1,40 @@
 import { getParam, loadHeaderFooter } from "./utils.mjs";
-import ExternalServices from "./ExternalServices.mjs";
-import ProductList from "./ProductList.mjs";
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import { renderListWithTemplate } from "./utils.mjs";
 
 loadHeaderFooter();
 
+//Get paramater from URL query
 const category = getParam("status");
-// const navigation = `<li>${category}</i>`
 
+//Indicator of which page is rendered
 document.querySelector("h1").innerText = category;
-// document.querySelector("ul").appendChild = navigation
 
-// // instantiate ExternalServices
-// const dataSource = new ExternalServices(category);
-// const element = document.querySelector(".product-list");
-// const productList = new ProductList(category, dataSource, element);
-
-// productList.init();
-
+//What happens when the status is changed for each ticket
 function changeStatus(id) {
+  //Every ticket's ID is an "S" with a number corresponding to it.
+  // Here we take only the number, as it corresponds to the array index
   let listIndex = id.substring(1);
+
+  //Get the list from local storage
   let list = getLocalStorage("ticket-list");
+
+  //Get the value from the status <select> ticket whose ID matches
   const newStatus = document.querySelector(`#${id}`).value;
-  // console.log("New Status is: ", newStatus);
-  // console.log("before", list);
+
+  //Change the ticket's status for the newly selected one
   list[listIndex].status = newStatus;
-  // console.log("status: ", list[listIndex].status);
-  // console.log("after", list);
-  // console.log(newStatus);
-  // console.log("made it here! ID: ", id);
+
+  //Update the local stored ticket list
   setLocalStorage("ticket-list", list);
+
+  //refresh the UI
   document.querySelector("ul").innerHTML = null;
+
+  //re-render with new list
   renderTicketList();
 }
 
+//Ticket template
 function TicketTemplate(ticket, index) {
   return `
   <li class="ticket-card">
@@ -57,19 +57,25 @@ function TicketTemplate(ticket, index) {
   </li>`;
 }
 
+//Render the ticket list items in a UL
 function renderTicketList() {
+  //Select the UL where everything will be appended
   let listUl = document.querySelector(".ticketListUl");
 
+  //retrieve latest version of the list from local storage
   let list = getLocalStorage("ticket-list");
 
+  //Iterate through the list and create each ticket
   list.map((item, index) => {
     if (item.status.toUpperCase() === category.toUpperCase()) {
       listUl.insertAdjacentHTML("beforeend", TicketTemplate(item, index));
     }
   });
 
+  //Select all <select>s
   const selects = document.querySelectorAll("select");
 
+  //Add event listener to each, for status change purposes
   selects.forEach((select) => {
     select.addEventListener("change", () => {
       changeStatus(select.id);
@@ -77,4 +83,5 @@ function renderTicketList() {
   });
 }
 
+//Render the list
 renderTicketList();
